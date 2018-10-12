@@ -3,8 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const cats = require('./cats.json');
-const dogs = require('./dogs.json');
+const { catQ, dogQ } = require('./queue-class');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
@@ -24,20 +23,20 @@ app.use(
 );
 
 app.get('/api/cat', (req, res, next) => {
-  res.json(cats[0]);
+  res.json(catQ.peek());
 });
 
 app.get('/api/dog', (req, res, next) => {
-  res.json(dogs[0]);
+  res.json(dogQ.peek());
 });
 
 app.delete('/api/cat', (req, res, next) => {
-  cats.shift();
+  catQ.dequeue();
   res.sendStatus(204);
 });
 
 app.delete('/api/dog', (req, res, next) => {
-  dogs.shift();
+  dogQ.dequeue();
   res.sendStatus(204);
 });
 
