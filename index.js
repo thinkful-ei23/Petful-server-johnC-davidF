@@ -3,8 +3,8 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const cats = require ('./cats.json')
-const dogs = require('./dogs.json')
+const cats = require('./cats.json');
+const dogs = require('./dogs.json');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
@@ -23,14 +23,23 @@ app.use(
   })
 );
 
+app.get('/api/cat', (req, res, next) => {
+  res.json(cats[0]);
+});
 
-app.get('/api/cat',(req,res,next)=>{
-  res.json(cats)
-})
+app.get('/api/dog', (req, res, next) => {
+  res.json(dogs[0]);
+});
 
-app.get('/api/dog',(req,res,next)=>{
-  res.json(dogs)
-})
+app.delete('/api/cat', (req, res, next) => {
+  cats.shift();
+  res.sendStatus(204);
+});
+
+app.delete('/api/dog', (req, res, next) => {
+  dogs.shift();
+  res.sendStatus(204);
+});
 
 function runServer(port = PORT) {
   const server = app
@@ -42,7 +51,6 @@ function runServer(port = PORT) {
       console.error(err);
     });
 }
-
 
 if (require.main === module) {
   dbConnect();

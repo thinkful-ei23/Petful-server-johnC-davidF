@@ -1,13 +1,29 @@
-[{
-    "imageURL":"https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg", 
+[
+  {
+    "imageURL": "https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg",
     "imageDescription": "Orange bengal cat with black stripes lounging on concrete.",
     "name": "Fluffy",
     "sex": "Female",
     "age": 2,
     "breed": "Bengal",
     "story": "Thrown on the street"
-}
-
-
+  },
+  {
+    "imageURL": "https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg",
+    "imageDescription": "Orange bengal cat with black stripes lounging on concrete.",
+    "name": "notsoFluffy",
+    "sex": "Male",
+    "age": 1,
+    "breed": "Bengal",
+    "story": "Thrown on the shelter"
+  },
+  {
+    "imageURL": "https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg",
+    "imageDescription": "Orange bengal cat with black stripes lounging on concrete.",
+    "name": "sgt. Cake",
+    "sex": "Male",
+    "age": 5,
+    "breed": "Bengal",
+    "story": "fought his way to the street"
+  }
 ]
-
